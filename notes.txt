@@ -8,3 +8,20 @@ sudo apt update
 
 
 sudo apt install postgresql-client-17
+
+
+
+
+
+
+docker build --no-cache -t undrr/datum-ai-vector-worker:0.0.2-arm64 .
+docker push undrr/datum-ai-vector-worker:0.0.2-arm64
+
+docker build --no-cache -t undrr/datum-ai-vector-worker:0.0.2-amd64 .
+docker push undrr/datum-ai-vector-worker:0.0.2-amd64
+
+docker manifest create undrr/datum-ai-vector-worker:0.0.2 --amend undrr/datum-ai-vector-worker:0.0.2-amd64 --amend undrr/datum-ai-vector-worker:0.0.2-arm64
+docker manifest push undrr/datum-ai-vector-worker:0.0.2
+
+docker manifest create undrr/datum-ai-vector-worker:latest --amend undrr/datum-ai-vector-worker:0.0.2-amd64 --amend undrr/datum-ai-vector-worker:0.0.2-arm64
+docker manifest push undrr/datum-ai-vector-worker:latest
