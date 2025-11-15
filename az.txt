@@ -1,1 +1,7 @@
-
+az ssh vm -n undrr-d-mng -g undrr-d-sharedinfra-rg --subscription UNDRR-DEV 
+az ssh vm -n undrr-p-mng -g undrr-p-sharedinfra-rg --subscription UNDRR-PROD 
+az ssh vm -n undrr-d-common-vm -g undrr-d-sharedinfra-rg --subscription UNDRR-DEV
+az ssh vm -n undrr-p-common-vm -g undrr-p-sharedinfra-rg --subscription UNDRR-PROD
+az ssh vm -n undrr-d-drupal-db-vm -g undrr-d-drupal-rg --subscription UNDRR-DEV
+az ssh vm -n undrr-p-drupal-db-vm -g undrr-p-drupal-rg --subscription UNDRR-PROD
+az ssh vm -n undrr-d-datahub-vm -g undrr-d-datahub-rg --subscription UNDRR-DEV
