@@ -25,3 +25,7 @@ docker manifest push undrr/datum-ai-vector-worker:0.0.2
 
 docker manifest create undrr/datum-ai-vector-worker:latest --amend undrr/datum-ai-vector-worker:0.0.2-amd64 --amend undrr/datum-ai-vector-worker:0.0.2-arm64
 docker manifest push undrr/datum-ai-vector-worker:latest
+
+
+
+env PYTHONPATH=/data python3 src/task_datum_enriched_content.py --cluster preventionweb --collection events --version 1.0.0 --limit 5 --latest
