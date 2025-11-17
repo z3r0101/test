@@ -5,3 +5,16 @@ az ssh vm -n undrr-p-common-vm -g undrr-p-sharedinfra-rg --subscription UNDRR-PR
 az ssh vm -n undrr-d-drupal-db-vm -g undrr-d-drupal-rg --subscription UNDRR-DEV
 az ssh vm -n undrr-p-drupal-db-vm -g undrr-p-drupal-rg --subscription UNDRR-PROD
 az ssh vm -n undrr-d-datahub-vm -g undrr-d-datahub-rg --subscription UNDRR-DEV
+
+
+SELECT
+  COUNT(*) FILTER (WHERE content_enriched IS NOT NULL AND content_enriched <> '') AS enriched,
+  COUNT(*) AS total,
+  ROUND(
+    100.0 * COUNT(*) FILTER (WHERE content_enriched IS NOT NULL AND content_enriched <> '') / COUNT(*),
+    2
+  ) AS percent_complete
+FROM raw_content
+WHERE cluster_id = 'hips'
+  AND collection_id = 'hazards'
+  AND version = '2.0.0';
