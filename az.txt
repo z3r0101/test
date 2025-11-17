@@ -27,3 +27,34 @@ WHERE cluster_id = 'preventionweb'
 env PYTHONPATH=/data python3 src/task_datum_enriched_content.py \
       --cluster preventionweb --collection events --version 1.0.0 --limit 50 --latest
 
+
+SELECT *
+FROM (
+    SELECT 
+        LOWER(collection_id) AS collection,
+        COALESCE(content_enriched_status, 'NULL') AS content_enriched_status,
+        COUNT(*) AS count
+    FROM raw_content
+    WHERE 
+        LOWER(cluster_id) = 'preventionweb'
+        AND LOWER(version) = '1.0.0'
+    GROUP BY collection, content_enriched_status
+
+    UNION ALL
+
+    -- Totals per collection
+    SELECT 
+        LOWER(collection_id) AS collection,
+        'TOTAL' AS content_enriched_status,
+        COUNT(*) AS count
+    FROM raw_content
+    WHERE 
+        LOWER(cluster_id) = 'preventionweb'
+        AND LOWER(version) = '1.0.0'
+    GROUP BY collection
+) AS combined
+ORDER BY 
+    collection,
+    (content_enriched_status != 'TOTAL')::int,  -- put TOTAL last
+    content_enriched_status;
+
