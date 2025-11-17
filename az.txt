@@ -10,6 +10,7 @@ az ssh vm -n undrr-d-datahub-vm -g undrr-d-datahub-rg --subscription UNDRR-DEV
 SELECT
   COUNT(*) FILTER (WHERE content_enriched IS NOT NULL AND content_enriched <> '') AS enriched,
   COUNT(*) AS total,
+  (COUNT(*) - COUNT(*) FILTER (WHERE content_enriched IS NOT NULL AND content_enriched <> '')) AS total_remaining,
   CASE 
     WHEN COUNT(*) = 0 THEN 0
     ELSE ROUND(
@@ -20,5 +21,6 @@ SELECT
 FROM raw_content
 WHERE cluster_id = 'preventionweb'
   AND collection_id = 'news'
-  AND version = '1.0.0';
+  AND version = '2.0.0';
+
 
