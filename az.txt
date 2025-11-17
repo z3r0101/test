@@ -24,3 +24,6 @@ WHERE cluster_id = 'preventionweb'
   AND version = '1.0.0';
 
 
+env PYTHONPATH=/data python3 src/task_datum_enriched_content.py \
+      --cluster preventionweb --collection events --version 1.0.0 --limit 50 --latest
+
