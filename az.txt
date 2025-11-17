@@ -21,6 +21,6 @@ SELECT
 FROM raw_content
 WHERE cluster_id = 'preventionweb'
   AND collection_id = 'news'
-  AND version = '2.0.0';
+  AND version = '1.0.0';
 
 
