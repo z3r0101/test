@@ -10,11 +10,15 @@ az ssh vm -n undrr-d-datahub-vm -g undrr-d-datahub-rg --subscription UNDRR-DEV
 SELECT
   COUNT(*) FILTER (WHERE content_enriched IS NOT NULL AND content_enriched <> '') AS enriched,
   COUNT(*) AS total,
-  ROUND(
-    100.0 * COUNT(*) FILTER (WHERE content_enriched IS NOT NULL AND content_enriched <> '') / COUNT(*),
-    2
-  ) AS percent_complete
+  CASE 
+    WHEN COUNT(*) = 0 THEN 0
+    ELSE ROUND(
+      100.0 * COUNT(*) FILTER (WHERE content_enriched IS NOT NULL AND content_enriched <> '') / COUNT(*),
+      2
+    )
+  END AS percent_complete
 FROM raw_content
-WHERE cluster_id = 'hips'
-  AND collection_id = 'hazards'
-  AND version = '2.0.0';
+WHERE cluster_id = 'preventionweb'
+  AND collection_id = 'news'
+  AND version = '1.0.0';
+
