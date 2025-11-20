@@ -41,3 +41,7 @@ env PYTHONPATH=/data python3 src/task_chunk_content_v1.py \
 
 env PYTHONPATH=/data /usr/local/bin/python3 /data/src/task_datum_enriched_content.py --cluster preventionweb --collection news --version 1.0.0 --limit 50 --latest-new
 
+
+env PYTHONPATH=/data \
+  /usr/local/bin/python3 /data/src/temp_populate_content_checksum.py
+
