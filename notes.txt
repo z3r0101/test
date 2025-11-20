@@ -38,3 +38,6 @@ env PYTHONPATH=/data python3 src/task_chunk_content_v1.py \
 
 /opt/venv/bin/python3 /data/python/task_datum_enriched_content.py --cluster drupal --collection news --version 1.0.0 --id 101313 --recreate
 
+
+env PYTHONPATH=/data /usr/local/bin/python3 /data/src/task_datum_enriched_content.py --cluster preventionweb --collection news --version 1.0.0 --limit 50 --latest-new
+
