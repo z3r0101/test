@@ -1,1 +1,6 @@
+ALTER TABLE raw_content
+ADD COLUMN content_enriched_checksum TEXT;
 
+
+ALTER TABLE content_chunk_text_embedding_3_small
+ADD COLUMN content_checksum TEXT;
