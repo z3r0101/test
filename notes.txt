@@ -45,3 +45,23 @@ env PYTHONPATH=/data /usr/local/bin/python3 /data/src/task_datum_enriched_conten
 env PYTHONPATH=/data \
   /usr/local/bin/python3 /data/src/temp_populate_content_checksum.py
 
+
+
+SELECT COUNT(*) 
+FROM content_chunk_text_embedding_3_small
+WHERE cluster_id='preventionweb' 
+  AND collection_id='news';
+
+DELETE FROM content_chunk_text_embedding_3_small
+WHERE cluster_id = 'preventionweb'
+  AND collection_id = 'news'
+  AND version = '1.0.0';
+
+env PYTHONPATH=/data python3 src/task_chunk_content.py \
+  --cluster_id preventionweb \
+  --collection_id news \
+  --version 1.0.0 \
+  --article-limit 25 \
+  --reset \
+  --shifted-chunking
+
