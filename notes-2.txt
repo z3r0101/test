@@ -32,3 +32,9 @@ Ctrl + A  then  D
 env PYTHONPATH=/data python3 src/task_chunk_content.py \
     --cluster_id preventionweb --collection_id news \
     --version 1.0.0 --article-limit 10 --latest --latest-max-pages 1
+
+
+SELECT COUNT(*)
+FROM raw_content
+WHERE content_enriched IS NOT NULL
+  AND content_enriched_checksum IS NULL;
