@@ -27,3 +27,7 @@ env PYTHONPATH=/data python3 src/task_chunk_content.py \
     --version 1.0.0 --article-limit 25 \
     --shifted-chunking 25 --page-start 1021
 Ctrl + A  then  D
+
+
+ALTER TABLE content_chunk_text_embedding_3_small
+ADD COLUMN raw_content_id BIGINT;
