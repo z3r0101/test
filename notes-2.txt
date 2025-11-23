@@ -29,5 +29,6 @@ env PYTHONPATH=/data python3 src/task_chunk_content.py \
 Ctrl + A  then  D
 
 
-ALTER TABLE content_chunk_text_embedding_3_small
-ADD COLUMN raw_content_id BIGINT;
+env PYTHONPATH=/data python3 src/task_chunk_content.py \
+    --cluster_id preventionweb --collection_id news \
+    --version 1.0.0 --article-limit 10 --latest --latest-max-pages 1
