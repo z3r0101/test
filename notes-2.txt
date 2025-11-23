@@ -1,0 +1,27 @@
+screen -S w1
+env PYTHONPATH=/data python3 src/task_chunk_content.py \
+    --cluster_id preventionweb --collection_id news \
+    --version 1.0.0 --article-limit 25 \
+    --shifted-chunking 25 --page-start 1 --page-end 340
+Ctrl + A  then  D
+
+screen -S w2
+env PYTHONPATH=/data python3 src/task_chunk_content.py \
+    --cluster_id preventionweb --collection_id news \
+    --version 1.0.0 --article-limit 25 \
+    --shifted-chunking 25 --page-start 341 --page-end 680
+Ctrl + A  then  D
+
+screen -S w3
+env PYTHONPATH=/data python3 src/task_chunk_content.py \
+    --cluster_id preventionweb --collection_id news \
+    --version 1.0.0 --article-limit 25 \
+    --shifted-chunking 25 --page-start 681 --page-end 1020
+Ctrl + A  then  D
+
+screen -S w4
+env PYTHONPATH=/data python3 src/task_chunk_content.py \
+    --cluster_id preventionweb --collection_id news \
+    --version 1.0.0 --article-limit 25 \
+    --shifted-chunking 25 --page-start 1021
+Ctrl + A  then  D
