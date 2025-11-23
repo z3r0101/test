@@ -46,11 +46,11 @@ env PYTHONPATH=/data python3 src/task_chunk_content.py \
     --shifted-chunking 25 --page-start 261 --page-end 520
 # Ctrl + A then D
 
-screen -S p2
+screen -S p3
 env PYTHONPATH=/data python3 src/task_chunk_content.py \
     --cluster_id preventionweb --collection_id publications \
     --version 1.0.0 --article-limit 25 \
-    --shifted-chunking 25 --page-start 261 --page-end 520
+    --shifted-chunking 25 --page-start 521 --page-end 780
 # Ctrl + A then D
 
 screen -S p4
