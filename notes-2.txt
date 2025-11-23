@@ -33,6 +33,10 @@ env PYTHONPATH=/data python3 src/task_chunk_content.py \
     --cluster_id preventionweb --collection_id news \
     --version 1.0.0 --article-limit 10 --latest --latest-max-pages 1
 
+env PYTHONPATH=/data python3 src/task_datum_enriched_content.py \
+    --cluster preventionweb --collection news --version 1.0.0 \
+    --limit 25 --patch01 --verbose
+
 
 SELECT COUNT(*)
 FROM raw_content
