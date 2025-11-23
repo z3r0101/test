@@ -29,16 +29,33 @@ env PYTHONPATH=/data python3 src/task_chunk_content.py \
 Ctrl + A  then  D
 
 
+------
+
+
+screen -S p1
 env PYTHONPATH=/data python3 src/task_chunk_content.py \
-    --cluster_id preventionweb --collection_id news \
-    --version 1.0.0 --article-limit 10 --latest --latest-max-pages 1
+    --cluster_id preventionweb --collection_id publications \
+    --version 1.0.0 --article-limit 25 \
+    --shifted-chunking 25 --page-start 1 --page-end 260
+# Ctrl + A then D
 
-env PYTHONPATH=/data python3 src/task_datum_enriched_content.py \
-    --cluster preventionweb --collection news --version 1.0.0 \
-    --limit 25 --patch01 --verbose
+screen -S p2
+env PYTHONPATH=/data python3 src/task_chunk_content.py \
+    --cluster_id preventionweb --collection_id publications \
+    --version 1.0.0 --article-limit 25 \
+    --shifted-chunking 25 --page-start 261 --page-end 520
+# Ctrl + A then D
 
+screen -S p2
+env PYTHONPATH=/data python3 src/task_chunk_content.py \
+    --cluster_id preventionweb --collection_id publications \
+    --version 1.0.0 --article-limit 25 \
+    --shifted-chunking 25 --page-start 261 --page-end 520
+# Ctrl + A then D
 
-SELECT COUNT(*)
-FROM raw_content
-WHERE content_enriched IS NOT NULL
-  AND content_enriched_checksum IS NULL;
+screen -S p4
+env PYTHONPATH=/data python3 src/task_chunk_content.py \
+    --cluster_id preventionweb --collection_id publications \
+    --version 1.0.0 --article-limit 25 \
+    --shifted-chunking 25 --page-start 781
+# Ctrl + A then D
