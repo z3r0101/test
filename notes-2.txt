@@ -1,5 +1,16 @@
 apt-get update && apt-get install -y screen
 
+COMMAND:
+
+screen -ls
+
+screen -r [name]
+
+[Force reattached and view]
+screen -D -R p1
+
+----
+
 screen -S w1
 env PYTHONPATH=/data python3 src/task_chunk_content.py \
     --cluster_id preventionweb --collection_id news \
