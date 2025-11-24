@@ -119,6 +119,6 @@ env PYTHONPATH=/data python3 src/task_chunk_content.py \
 
 screen -S edu1
 env PYTHONPATH=/data python3 src/task_chunk_content.py \
-    --cluster_id preventionweb --collection_id education \
+    --cluster_id preventionweb --collection_id educational \
     --version 1.0.0 --article-limit 25 \
     --shifted-chunking 25 --page-start 1 --page-end 29
