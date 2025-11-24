@@ -145,3 +145,13 @@ env PYTHONPATH=/data python3 src/parallel_embed.py \
     --collection events \
     --version 1.0.0 \
     --auto-backfill
+
+
+SELECT
+    COUNT(*) AS total_chunks,
+    COUNT(chunk_embedding) AS embedded_chunks,
+    COUNT(*) - COUNT(chunk_embedding) AS remaining_unembedded
+FROM content_chunk_text_embedding_3_small
+WHERE cluster_id = 'preventionweb'
+  AND collection_id = 'events'
+  AND version = '1.0.0';
