@@ -137,7 +137,7 @@ env PYTHONPATH=/data python3 src/parallel_embed.py \
     --version 1.0.0
 
 
-env PYTHONPATH=/data python3 parallel_embed.py \
+env PYTHONPATH=/data python3 src/parallel_embed.py \
     --workers 6 \
     --limit 300 \
     --model text-embedding-3-small \
