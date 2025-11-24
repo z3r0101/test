@@ -70,3 +70,55 @@ env PYTHONPATH=/data python3 src/task_chunk_content.py \
     --version 1.0.0 --article-limit 25 \
     --shifted-chunking 25 --page-start 781
 # Ctrl + A then D
+
+
+-------
+
+
+screen -S e1
+env PYTHONPATH=/data python3 src/task_chunk_content.py \
+    --cluster_id preventionweb --collection_id events \
+    --version 1.0.0 --article-limit 25 \
+    --shifted-chunking 25 --page-start 1 --page-end 110
+
+screen -S e2
+env PYTHONPATH=/data python3 src/task_chunk_content.py \
+    --cluster_id preventionweb --collection_id events \
+    --version 1.0.0 --article-limit 25 \
+    --shifted-chunking 25 --page-start 111 --page-end 220
+
+screen -S e3
+env PYTHONPATH=/data python3 src/task_chunk_content.py \
+    --cluster_id preventionweb --collection_id events \
+    --version 1.0.0 --article-limit 25 \
+    --shifted-chunking 25 --page-start 221 --page-end 326
+
+
+-------
+
+screen -S v1
+env PYTHONPATH=/data python3 src/task_chunk_content.py \
+    --cluster_id preventionweb --collection_id vacancies \
+    --version 1.0.0 --article-limit 25 \
+    --shifted-chunking 25 --page-start 1 --page-end 65
+
+screen -S v2
+env PYTHONPATH=/data python3 src/task_chunk_content.py \
+    --cluster_id preventionweb --collection_id vacancies \
+    --version 1.0.0 --article-limit 25 \
+    --shifted-chunking 25 --page-start 66 --page-end 130
+
+screen -S v3
+env PYTHONPATH=/data python3 src/task_chunk_content.py \
+    --cluster_id preventionweb --collection_id vacancies \
+    --version 1.0.0 --article-limit 25 \
+    --shifted-chunking 25 --page-start 131 --page-end 194
+
+
+-------
+
+screen -S edu1
+env PYTHONPATH=/data python3 src/task_chunk_content.py \
+    --cluster_id preventionweb --collection_id education \
+    --version 1.0.0 --article-limit 25 \
+    --shifted-chunking 25 --page-start 1 --page-end 29
