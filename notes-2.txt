@@ -122,3 +122,16 @@ env PYTHONPATH=/data python3 src/task_chunk_content.py \
     --cluster_id preventionweb --collection_id educational \
     --version 1.0.0 --article-limit 25 \
     --shifted-chunking 25 --page-start 1 --page-end 29
+
+
+
+
+--------
+
+env PYTHONPATH=/data python3 parallel_embed.py \
+    --workers 4 \
+    --limit 300 \
+    --model text-embedding-3-small \
+    --cluster_id preventionweb \
+    --collection_id events \
+    --version 1.0.0
