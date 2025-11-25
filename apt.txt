@@ -1,0 +1,18 @@
+apt list --upgradable
+
+[undrr-d-drupal-db-vm]
+apt-mark hold mariadb-server mariadb-client mariadb-common mariadb-server-core mariadb-client-core mariadb-server-compat mariadb-client-compat mysql-common libmysqlclient21 libmariadb3
+apt-mark showhold
+
+apt-get update && apt-get upgrade -y
+
+[ -f /var/run/reboot-required ] && echo "Reboot needed" || echo "No reboot needed"
+
+reboot
+
+#Check if there are any Kernel update
+apt list --upgradable | grep linux-
+apt-get update && apt-get dist-upgrade -y
+
+
+apt-get install systemd
