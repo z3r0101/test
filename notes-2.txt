@@ -147,6 +147,16 @@ env PYTHONPATH=/data python3 src/parallel_embed.py \
     --version 1.0.0 \
     --auto-backfill
 
+screen -S news-embedding
+env PYTHONPATH=/data python3 src/parallel_embed.py \
+    --workers 6 \
+    --limit 500 \
+    --model text-embedding-3-small \
+    --cluster preventionweb \
+    --collection publications \
+    --version 1.0.0 \
+    --auto-backfill
+
 
 SELECT
     COUNT(*) AS total_chunks,
