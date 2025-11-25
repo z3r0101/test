@@ -137,12 +137,13 @@ env PYTHONPATH=/data python3 src/parallel_embed.py \
     --version 1.0.0
 
 
+screen -S publications-embedding
 env PYTHONPATH=/data python3 src/parallel_embed.py \
-    --workers 6 \
-    --limit 300 \
+    --workers 10 \
+    --limit 500 \
     --model text-embedding-3-small \
     --cluster preventionweb \
-    --collection events \
+    --collection publications \
     --version 1.0.0 \
     --auto-backfill
 
