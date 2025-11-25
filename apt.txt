@@ -16,3 +16,7 @@ apt-get update && apt-get dist-upgrade -y
 
 
 apt-get install systemd
+
+
+
+sudo apt-mark hold mysql-common mysql-client mysql-client-core mysql-server mysql-server-core mariadb-client mariadb-client-core mariadb-server mariadb-server-core mariadb-common
