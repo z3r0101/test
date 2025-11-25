@@ -20,3 +20,6 @@ apt-get install systemd
 
 
 sudo apt-mark hold mariadb-client mariadb-client-core mariadb-server mariadb-server-core mariadb-common
+
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoicnlhbi5zYW5kaWdhbkB1bi5vcmciLCJpYXQiOjE3NjQwMzY1NTcsImV4cCI6MTc2NDIwOTM1N30._QA0VzsE3TLGUFBV7ORDoXC88FA8Pe9aRGHYQNngVko
