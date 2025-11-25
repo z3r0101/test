@@ -153,7 +153,7 @@ env PYTHONPATH=/data python3 src/parallel_embed.py \
     --limit 500 \
     --model text-embedding-3-small \
     --cluster preventionweb \
-    --collection publications \
+    --collection news \
     --version 1.0.0 \
     --auto-backfill
 
