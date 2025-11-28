@@ -166,3 +166,12 @@ FROM content_chunk_text_embedding_3_small
 WHERE cluster_id = 'preventionweb'
   AND collection_id = 'events'
   AND version = '1.0.0';
+
+
+
+env PYTHONPATH=/data python3 src/task_embed_content.py \
+  --model text-embedding-3-small \
+  --cluster_id preventionweb \
+  --collection_id news \
+  --version 1.0.0 \
+  --batch-embed 35
