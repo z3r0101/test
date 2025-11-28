@@ -174,4 +174,4 @@ env PYTHONPATH=/data python3 src/task_embed_content.py \
   --cluster_id preventionweb \
   --collection_id news \
   --version 1.0.0 \
-  --batch-embed 35
+  --batch-embed
