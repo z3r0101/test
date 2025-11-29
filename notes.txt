@@ -65,3 +65,5 @@ env PYTHONPATH=/data python3 src/task_chunk_content.py \
   --reset \
   --shifted-chunking
 
+
+curl -X POST -F "file=@metadata.txt" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoicnlhbi5zYW5kaWdhbkB1bi5vcmciLCJpYXQiOjE3NjQ0MDczMjgsImV4cCI6MTc2NDQ1MDUyOH0.JKv6DDeUXgmc8tCKFXTtWWYG_WM59LeJTp33iySSQt0" https://tools.undrr.org/service-upload
