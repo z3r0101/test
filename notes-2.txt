@@ -175,3 +175,21 @@ env PYTHONPATH=/data python3 src/task_embed_content.py \
   --collection_id news \
   --version 1.0.0 \
   --batch-embed
+
+
+------
+
+
+# API
+API_RAG_KEY="1234567890"
+API_RAG_PORT=8080
+
+DOCKER_COMPOSE_API_RAG_PORT=27017
+DOCKER_COMPOSE_ADMINER_PORT=3026
+DOCKER_COMPOSE_DASHBOARD_PORT=3029
+
+
+curl -s -G "http://10.210.124.16:27017" \
+  --data-urlencode "q=disaster risk reduction" \
+  -H "X-API-Key: 1234567890" \
+  -H "Accept: application/json" | jq
