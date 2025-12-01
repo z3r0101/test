@@ -198,3 +198,11 @@ curl -s -G "http://10.210.124.16:27017/api/json/rag/1.0.0" \
   --data-urlencode "q=disaster risk reduction" \
   -H "X-API-Key: 1234567890" \
   -H "Accept: application/json"
+
+
+SELECT pg_size_pretty(SUM(pg_column_size(chunk_embedding))) AS embedding_storage,
+       SUM(pg_column_size(chunk_embedding)) AS embedding_bytes,
+       COUNT(*) AS total_chunks
+FROM content_chunk_text_embedding_3_small
+WHERE collection_id = 'news'
+  AND chunk_embedding IS NOT NULL;
