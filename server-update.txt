@@ -4,7 +4,12 @@ apt list --upgradable
 apt-mark hold mariadb-server mariadb-client mariadb-common mariadb-server-core mariadb-client-core mariadb-server-compat mariadb-client-compat mysql-common libmysqlclient21 libmariadb3
 apt-mark showhold
 
+sudo apt list --installed | grep -Ei 'mariadb|mysql' | awk -F/ '{print $1}' | \
+xargs sudo apt-mark hold
+
 apt-get update && apt-get upgrade -y
+
+
 
 [ -f /var/run/reboot-required ] && echo "Reboot needed" || echo "No reboot needed"
 
@@ -16,3 +21,5 @@ apt-get update && apt-get dist-upgrade -y
 
 
 apt-get install systemd
+
+
