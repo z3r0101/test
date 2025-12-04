@@ -206,3 +206,19 @@ SELECT pg_size_pretty(SUM(pg_column_size(chunk_embedding))) AS embedding_storage
 FROM content_chunk_text_embedding_3_small
 WHERE collection_id = 'news'
   AND chunk_embedding IS NOT NULL;
+
+
+SELECT 
+    pg_size_pretty(SUM(pg_column_size(chunk_embedding))) AS embedding_storage,
+    SUM(pg_column_size(chunk_embedding)) AS embedding_bytes,
+    COUNT(*) AS total_chunks
+FROM (
+    SELECT chunk_embedding
+    FROM content_chunk_text_embedding_3_small
+    WHERE cluster_id = 'preventionweb'
+      AND collection_id = 'publications'
+      AND version = '1.0.0'
+      AND chunk_embedding IS NOT NULL
+    ORDER BY (metadata->>'published_on')::timestamp DESC
+    LIMIT 300000
+) sub;
