@@ -222,3 +222,13 @@ FROM (
     ORDER BY (metadata->>'published_on')::timestamp DESC
     LIMIT 300000
 ) sub;
+
+
+====
+
+
+CREATE INDEX CONCURRENTLY idx_chunk_embed_ivfflat
+ON content_chunk_text_embedding_3_small
+USING ivfflat (chunk_embedding vector_cosine_ops)
+WITH (lists = 800)
+WHERE chunk_embedding IS NOT NULL;
