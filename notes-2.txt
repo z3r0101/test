@@ -232,3 +232,11 @@ ON content_chunk_text_embedding_3_small
 USING ivfflat (chunk_embedding vector_cosine_ops)
 WITH (lists = 800)
 WHERE chunk_embedding IS NOT NULL;
+
+
+SELECT indexname, indexdef
+FROM pg_indexes
+WHERE tablename = 'content_chunk_text_embedding_3_small';
+
+
+DROP INDEX CONCURRENTLY IF EXISTS idx_chunk_embed_ivfflat;
