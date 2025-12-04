@@ -248,3 +248,8 @@ SELECT id
 FROM content_chunk_text_embedding_3_small
 ORDER BY chunk_embedding <-> '[0,0,0,...]'::vector
 LIMIT 5;
+
+
+ALTER SYSTEM SET maintenance_work_mem = '256MB';
+SELECT pg_reload_conf();
+SHOW maintenance_work_mem;
